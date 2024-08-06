@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom'; // Import NavLink
+import logo from '../images/logo.png';
 
-import logo from '../images/logo.png'
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
         <nav className="container p-6 mx-auto lg:flex lg:justify-between lg:items-center">
             <div className="flex items-center justify-between">
-                <a href="#">
-                    <img className="w-auto h-12 " src={logo} alt="" />
-                </a>
+                <NavLink to="/"> {/* Use NavLink instead of a */}
+                    <img className="w-auto h-12" src={logo} alt="Logo" />
+                </NavLink>
 
                 {/* Mobile menu button */}
                 <div className="flex lg:hidden">
@@ -52,29 +53,38 @@ const Navbar = () => {
                     } lg:mt-0 lg:p-0 lg:top-0 lg:bg-transparent lg:relative lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center`}
             >
                 <div className="flex flex-col space-y-4 lg:mt-0 lg:flex-row lg:space-y-0">
-                    <a className="text-gray-700 lg:mx-6 hover:text-[#2db34a]" href="#">
-                        Home
-                    </a>
-                    <a className="text-gray-700 lg:mx-6 hover:text-[#2db34a]" href="#">
-                        Components
-                    </a>
-                    <a className="text-gray-700 lg:mx-6 hover:text-[#2db34a]" href="#">
-                        Pricing
-                    </a>
-                    <a className="text-gray-700 lg:mx-6 hover:text-[#2db34a]" href="#">
-                        Contact
-                    </a>
-                    <a className="text-gray-700 lg:mx-6 hover:text-[#2db34a]" href="#">
+                    <NavLink
+                        className={({ isActive }) => `text-gray-700 lg:mx-6 hover:text-[#2db34a] ${isActive ? 'text-[#2db34a] font-semibold' : ''}`} // Add active styles
+                        to="/buy"
+                    >
+                        Buy
+                    </NavLink>
+                    <NavLink
+                        className={({ isActive }) => `text-gray-700 lg:mx-6 hover:text-[#2db34a] ${isActive ? 'text-[#2db34a] font-semibold' : ''}`}
+                        to="/rent"
+                    >
+                        Rent
+                    </NavLink>
+                    <NavLink
+                        className={({ isActive }) => `text-gray-700 lg:mx-6 hover:text-[#2db34a] ${isActive ? 'text-[#2db34a] font-semibold' : ''}`}
+                        to="/sell"
+                    >
+                        Sell
+                    </NavLink>
+                    <NavLink
+                        className={({ isActive }) => `text-gray-700 lg:mx-6 hover:text-[#2db34a] ${isActive ? 'text-[#2db34a] font-semibold' : ''}`}
+                        to="/faq"
+                    >
                         FAQ
-                    </a>
+                    </NavLink>
                 </div>
 
-                <a
-                    className="block px-5 py-2 mt-4 text-sm text-center text-gray-700 capitalize transition-colors duration-300 transform border rounded-md hover:text-white hover:bg-[#2db34a] lg:mt-0 lg:w-auto"
-                    href="#"
+                <NavLink
+                    className={({ isActive }) => `block px-5 py-2 mt-4 text-sm text-center text-gray-700 capitalize transition-colors duration-300 transform border rounded-md hover:text-white hover:bg-[#2db34a] lg:mt-0 lg:w-auto ${isActive ? 'text-white bg-[#2db34a]' : ''}`} // Add active styles for Contact Us
+                    to="/contact"
                 >
                     Contact Us
-                </a>
+                </NavLink>
             </div>
         </nav>
     );

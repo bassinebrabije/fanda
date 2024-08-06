@@ -1,21 +1,28 @@
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './component/navbar'
-import Hero from './component/hero'
-import How from './component/howwework'
-import Pro from './component/Professionnel'
-
+import Buy from './component/buy/buy';
+import Rent from './component/rent/rent';
+import Sell from './component/sell/sell';
+import FAQ from './component/faq/faq';
+import Contact from './component/contact';
 import Footer from './component/footer'
-import Contact from './component/contact'
-function App() {
+import Home from './component/home'
+const App = () => {
   return (
-    <div className="App">
+    <Router>
       <Navbar />
-      <Hero />
-      <How />
-      <Pro />
-      <Contact />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/buy" element={<Buy />} />
+        <Route path="/rent" element={<Rent />} />
+        <Route path="/sell" element={<Sell />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
       <Footer />
-    </div>
+    </Router>
   );
-}
+};
 
 export default App;

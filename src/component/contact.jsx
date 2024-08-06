@@ -7,7 +7,6 @@ function contact() {
                 <div class="mx-auto mb-20 flex w-full max-w-screen-lg flex-col overflow-hidden rounded-xl text-gray-900 md:flex-row md:border md:shadow-lg">
                     <form class="mx-auto w-full max-w-xl border-gray-200 px-10 py-8 md:px-8">
                         <div class="mb-4"><label class="text mb-2 block font-medium" for="email">Your Name :</label><input class="w-full rounded border border-gray-300 px-3 py-2 " id="email" type="email" required="" /></div>
-
                         <div class="mb-4"><label class="text mb-2 block font-medium" for="email">Your e-mail :</label><input class="w-full rounded border border-gray-300 px-3 py-2 " id="email" type="email" required="" /></div>
                         <div class="mb-4"><label class="text mb-2 block font-medium" for="email">Your Phone :</label><input class="w-full rounded border border-gray-300 px-3 py-2 " id="email" type="email" required="" /></div>
                         <div class="mb-4"><label class="text mb-2 block font-medium" for="subject">Subject :</label><input class="w-full rounded border border-gray-300 px-3 py-2 " id="subject" type="subject" required="" /></div>

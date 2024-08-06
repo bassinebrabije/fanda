@@ -98,7 +98,6 @@ const HowWeWork = () => {
                             </ul>
                         </div>
                     </article>
-
                     <article className="mb-4 cursor-pointer overflow-hidden rounded-xl border text-gray-700 shadow-md duration-500 ease-in-out hover:shadow-xl">
                         <div>
                             <img src="https://componentland.com/images/FBGUdtxU06E_G9iXSKYGo.png" alt="Beautiful property in Baton Rouge" className="w-full h-48 object-cover" />
@@ -193,9 +192,9 @@ const HowWeWork = () => {
                     </article>
                 </div>
             </section>
-
         </>
     );
 };
 
 export default HowWeWork;
+

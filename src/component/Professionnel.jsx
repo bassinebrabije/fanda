@@ -30,7 +30,6 @@ function Professionnel() {
                         Create, save, share and organize your components with ease. Save your components, share them with others, and keep your favorites at hand for easy access.
                     </p>
                 </div>
-
                 <div className="z-10 max-w-sm p-6 text-center">
                     <img src={V3} className="w-28 mx-auto text-black" />
                     <h2 className="mt-2 text-lg font-semibold text-gray-800">Industriel / Entrepôts</h2>
