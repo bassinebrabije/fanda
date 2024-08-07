@@ -5,10 +5,14 @@ import logo from '../images/logo.png';
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
+    const handleLinkClick = () => {
+        setIsOpen(false); // Close the navbar
+    };
+
     return (
         <nav className="container p-6 mx-auto lg:flex lg:justify-between lg:items-center">
             <div className="flex items-center justify-between">
-                <NavLink to="/"> {/* Use NavLink instead of a */}
+                <NavLink to="/" onClick={handleLinkClick}> {/* Use NavLink instead of a */}
                     <img className="w-auto h-12" src={logo} alt="Logo" />
                 </NavLink>
 
@@ -56,24 +60,28 @@ const Navbar = () => {
                     <NavLink
                         className={({ isActive }) => `text-gray-700 lg:mx-6 hover:text-[#2db34a] ${isActive ? 'text-[#2db34a] font-semibold' : ''}`} // Add active styles
                         to="/buy"
+                        onClick={handleLinkClick}
                     >
                         Buy
                     </NavLink>
                     <NavLink
                         className={({ isActive }) => `text-gray-700 lg:mx-6 hover:text-[#2db34a] ${isActive ? 'text-[#2db34a] font-semibold' : ''}`}
                         to="/rent"
+                        onClick={handleLinkClick}
                     >
                         Rent
                     </NavLink>
                     <NavLink
                         className={({ isActive }) => `text-gray-700 lg:mx-6 hover:text-[#2db34a] ${isActive ? 'text-[#2db34a] font-semibold' : ''}`}
                         to="/sell"
+                        onClick={handleLinkClick}
                     >
                         Sell
                     </NavLink>
                     <NavLink
                         className={({ isActive }) => `text-gray-700 lg:mx-6 hover:text-[#2db34a] ${isActive ? 'text-[#2db34a] font-semibold' : ''}`}
                         to="/faq"
+                        onClick={handleLinkClick}
                     >
                         FAQ
                     </NavLink>
@@ -82,6 +90,7 @@ const Navbar = () => {
                 <NavLink
                     className={({ isActive }) => `block px-5 py-2 mt-4 text-sm text-center text-gray-700 capitalize transition-colors duration-300 transform border rounded-md hover:text-white hover:bg-[#2db34a] lg:mt-0 lg:w-auto ${isActive ? 'text-white bg-[#2db34a]' : ''}`} // Add active styles for Contact Us
                     to="/contact"
+                    onClick={handleLinkClick}
                 >
                     Contact Us
                 </NavLink>
