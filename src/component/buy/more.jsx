@@ -16,7 +16,7 @@ function More() {
                 <NavLink to="/buy">
                     <h1 className="text-sm  text-[#2db34a]">  Back to Home</h1>
                 </NavLink>
-                <div className='flex items-center justify-center '>
+                <div className='sm:flex items-center justify-center '>
                     <div className='sm:h-[60%] sm:w-[60%]'>
                         <Carousel>
                             <div>
@@ -40,7 +40,6 @@ function More() {
                         </Carousel>
                     </div>
                 </div>
-
                 <h2 className="text-2xl font-bold ">Property Details</h2>
                 <img src={property.imgSrc} alt={`Property at ${property.address}`} className="w-full h-48 object-cover" />
                 <p className="text-lg font-medium">{property.price}</p>
@@ -48,9 +47,7 @@ function More() {
                 <p className="text-md">{property.details.size}</p>
                 <p className="text-md">{property.details.beds}</p>
                 <p className="text-md">{property.details.baths}</p>
-
             </div>
-
             <h2 className=" px-10 sm:px-20 text-2xl font-bold items-start">Similar Listings</h2>
             <section className="flex flex-col items-center bg-white">
 

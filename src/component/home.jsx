@@ -3,7 +3,7 @@ import Hero from './hero'
 import Annonces from './Annonces'
 
 import Pro from './Professionnel'
-import Allannonces from './allannonces'
+import About from './about'
 import Contact from './contact'
 
 function home() {
@@ -12,7 +12,7 @@ function home() {
             <Hero />
             <Annonces />
             <Pro />
-            <Allannonces />
+            <About />
             <Contact />
         </>
     )

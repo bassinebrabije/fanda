@@ -16,7 +16,6 @@ function Buy() {
                 baths: "4 Baths",
             }
         },
-
     ];
 
     const handleArticleClick = (property) => {

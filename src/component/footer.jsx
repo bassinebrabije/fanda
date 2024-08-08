@@ -6,7 +6,7 @@ function Footer() {
 
     return (
         <>
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-10">
                 <div className="flex items-center justify-center pb-6 border-t-2">
                     <a className="mt-10">
                         <img src={logo} className="h-12" alt="logo" loading="lazy" />
