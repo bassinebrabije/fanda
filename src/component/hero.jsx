@@ -21,11 +21,14 @@ function hero() {
                     </p>
                     <div className="w-full max-w-sm mx-auto mt-6 bg-transparent border rounded-md">
                         <form className="flex flex-col md:flex-row">
-                            <input
-                                type="email"
-                                placeholder="Enter your address,city,zip code"
-                                className="flex-1 h-10 px-4 py-2 m-1 text-gray-700 placeholder-gray-400 bg-white border rounded-md shadow-sm focus:outline-none"
-                            />
+                            <select id="manufacturer" className="flex-1 py-4   sm:px-4 sm:py-2 m-1   text-gray-700 placeholder-gray-400 bg-white border rounded-md shadow-sm focus:outline-none">
+                                <option disabled hidden selected>Type de Bien</option>
+                                <option>Appartement</option>
+                                <option>Studio</option>
+                                <option>Villa</option>
+                                <option>Maison</option>
+                                <option>Immo Neuf</option>
+                            </select>
                             <button
                                 type="button"
                                 className="h-10 px-4 py-2 m-1 text-white transition-colors duration-300 transform bg-[#2db34a] rounded-md hover:bg-[#0b7d89] focus:outline-none"

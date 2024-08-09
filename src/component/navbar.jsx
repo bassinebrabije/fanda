@@ -66,13 +66,6 @@ const Navbar = () => {
                     </NavLink>
                     <NavLink
                         className={({ isActive }) => `text-gray-700 lg:mx-6 hover:text-[#2db34a] ${isActive ? 'text-[#2db34a] font-semibold' : ''}`}
-                        to="/rent"
-                        onClick={handleLinkClick}
-                    >
-                        Rent
-                    </NavLink>
-                    <NavLink
-                        className={({ isActive }) => `text-gray-700 lg:mx-6 hover:text-[#2db34a] ${isActive ? 'text-[#2db34a] font-semibold' : ''}`}
                         to="/sell"
                         onClick={handleLinkClick}
                     >
@@ -80,11 +73,13 @@ const Navbar = () => {
                     </NavLink>
                     <NavLink
                         className={({ isActive }) => `text-gray-700 lg:mx-6 hover:text-[#2db34a] ${isActive ? 'text-[#2db34a] font-semibold' : ''}`}
-                        to="/faq"
+                        to="/rent"
                         onClick={handleLinkClick}
                     >
-                        FAQ
+                        Rent
                     </NavLink>
+
+
                 </div>
 
                 <NavLink
