@@ -1,8 +1,8 @@
 import React from 'react'
 import Hero from './hero'
 import Annonces from './Annonces'
+import Decouvrez from './Decouvrez'
 
-import Pro from './Professionnel'
 import About from './about'
 import Contact from './contact'
 
@@ -11,8 +11,9 @@ function home() {
         <>
             <Hero />
             <Annonces />
-            <Pro />
+
             <About />
+            <Decouvrez />
             <Contact />
         </>
     )

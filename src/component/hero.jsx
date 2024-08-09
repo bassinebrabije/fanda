@@ -6,6 +6,8 @@ function hero() {
 
     return (
         <>
+
+
             <div className="relative container sm:mt-2 px-6 py-16 mx-auto text-center ">
                 <img
                     src={Heroimg}
@@ -13,7 +15,7 @@ function hero() {
                     className="absolute inset-0 object-cover w-full h-full   sm:rounded-lg"
                 />
                 <div className="relative z-10 max-w-lg mx-auto  p-8 ">
-                    <h1 style={{ fontFamily: 'Roboto, sans-serif' }} className="text-3xl font-bold text-[#FFF] lg:text-4xl">
+                    <h1 style={{ fontFamily: '"Playfair Display", serif' }} className="text-3xl font-bold text-[#FFF] lg:text-4xl">
                         Let's Find a Home That's Perfect For You
                     </h1>
                     <p className="mt-6 text-[#FFF]">

@@ -17,10 +17,10 @@ function Buy() {
         <div className="sm:ml-5 sm:mr-5">
             {/* ... form code ... */}
             <section className="flex flex-col items-center bg-white">
-                <div className="mt-10 grid max-w-md grid-cols-1 gap-6 px-2 sm:max-w-lg sm:px-20 md:max-w-screen-xl md:grid-cols-2 md:px-10 lg:grid-cols-4 lg:gap-8">
+                <div className="mt-10 grid     max-w-md grid-cols-1 gap-6 px-2 sm:max-w-lg sm:px-20 md:max-w-screen-xl md:grid-cols-2 md:px-10 lg:grid-cols-3 lg:gap-8">
                     {articles.map((article) => (
                         <Link to={`/article/${article.id}`} key={article.id}>
-                            <article className="mb-4 overflow-hidden rounded-xl border text-gray-700 shadow-md duration-500 ease-in-out hover:shadow-xl">
+                            <article className="mb-4 overflow-hidden w-[20rem] rounded-xl border text-gray-700 shadow-md duration-500 ease-in-out hover:shadow-xl">
                                 <div className="relative">
                                     <img
                                         src={`https://i.imghippo.com/files/${article.img2}`}

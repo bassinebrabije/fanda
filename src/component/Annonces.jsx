@@ -13,14 +13,16 @@ const HowWeWork = () => {
     }, []);
     return (
         <>
-            <section className="flex flex-col items-center bg-white pb-5">
-                <h1 className="mt-10 text-2xl sm:text-3xl font-bold text-gray-800">Homes For You
+            <div className=" justify-between  flex  px-8 sm:px-20 mt-16">
+                <h1 className="text-left text-3xl text-[#2db34a] sm:text-4xl font-bold " style={{ fontFamily: '"Playfair Display", serif' }}>Découvrez notre sélection de biens
                 </h1>
+            </div>
+            <section className="flex flex-col items-center bg-white pb-5">
                 <div className="">
-                    <div className="mt-10 grid w-[22rem] md:w-[60rem]  max-w-md grid-cols-1 gap-6 px-2 sm:max-w-lg sm:px-20 md:max-w-screen-xl md:grid-cols-2 md:px-10 lg:grid-cols-3 lg:gap-8">
+                    <div className="mt-10 grid     max-w-md grid-cols-1 gap-6 px-2 sm:max-w-lg sm:px-20 md:max-w-screen-xl md:grid-cols-2 md:px-10 lg:grid-cols-3 lg:gap-8">
                         {articles.map((article) => (
                             <Link to={`/article/${article.id}`} key={article.id}>
-                                <article className="mb-4 overflow-hidden rounded-xl border text-gray-700 shadow-md duration-500 ease-in-out hover:shadow-xl">
+                                <article className="mb-4 overflow-hidden  w-[20rem] rounded-xl border text-gray-700 shadow-md duration-500 ease-in-out hover:shadow-xl">
                                     <div className="relative">
                                         <img
                                             src={`https://i.imghippo.com/files/${article.img2}`}
