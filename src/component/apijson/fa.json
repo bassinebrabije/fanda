@@ -2,9 +2,9 @@
   {
     "id" : "1",
     "Description" : "Un grand et spacieux appartement à vendre avec une vue imprenable sur la mer. Il offre un cadre de vie luxueux dans l'un des quartiers les plus prisés de Casablanca ‘’2 mars’’, une opportunité à ne pas manquer",
-    "title": "Apparemment à vendre 2 mars",
+    "title": "Appartement à vendre 2 mars",
     "ville": "Casablanca",
-    "type": "Apparemment",
+    "type": "Appartement",
     "typevend": "Vendre",
     "Superficie": "57 m",
     "Terrasse": "7 m²",
@@ -50,9 +50,9 @@
   {
     "id" : "3",
     "Description" : "Un grand et spacieux appartement à vendre avec une vue imprenable sur la mer. Il offre un cadre de vie luxueux dans l'un des quartiers les plus prisés de Casablanca ‘’2 mars’’, une opportunité à ne pas manquer",
-    "title": "Apparemment à vendre 2 mars",
+    "title": "Appartement à vendre 2 mars",
     "ville": "Casablanca",
-    "type": "Apparemment",
+    "type": "Appartement",
     "typevend": "Vendre",
     "Superficie": "57 m",
     "Terrasse": "7 m²",

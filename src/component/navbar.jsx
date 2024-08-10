@@ -58,32 +58,29 @@ const Navbar = () => {
             >
                 <div className="flex flex-col space-y-4 lg:mt-0 lg:flex-row lg:space-y-0">
                     <NavLink
-                        className={({ isActive }) => `text-gray-700 lg:mx-6 hover:text-[#2db34a] ${isActive ? 'text-[#2db34a] font-semibold' : ''}`} // Add active styles
-                        to="/buy"
+                        className={({ isActive }) => `text-[#000] font-semibold   lg:mx-6 hover:text-[#2db34a] ${isActive ? 'text-[#2db34a] ' : ''}`} // Add active styles
+                        to="/Acheter"
                         onClick={handleLinkClick}
                     >
-                        Buy
+                        Acheter
                     </NavLink>
                     <NavLink
-                        className={({ isActive }) => `text-gray-700 lg:mx-6 hover:text-[#2db34a] ${isActive ? 'text-[#2db34a] font-semibold' : ''}`}
-                        to="/sell"
+                        className={({ isActive }) => `text-[#000]  font-semibold  lg:mx-6 hover:text-[#2db34a] ${isActive ? 'text-[#2db34a] ' : ''}`}
+                        to="/Louer"
                         onClick={handleLinkClick}
                     >
-                        Sell
+                        Louer
                     </NavLink>
                     <NavLink
-                        className={({ isActive }) => `text-gray-700 lg:mx-6 hover:text-[#2db34a] ${isActive ? 'text-[#2db34a] font-semibold' : ''}`}
-                        to="/rent"
+                        className={({ isActive }) => `text-[#000]  font-semibold  lg:mx-6 hover:text-[#2db34a] ${isActive ? 'text-[#2db34a] ' : ''}`}
+                        to="/Neufs"
                         onClick={handleLinkClick}
                     >
-                        Rent
+                        Immobiliers neufs
                     </NavLink>
-
-
                 </div>
-
                 <NavLink
-                    className={({ isActive }) => `block px-5 py-2 mt-4 text-sm text-center text-gray-700 capitalize transition-colors duration-300 transform border rounded-md hover:text-white hover:bg-[#2db34a] lg:mt-0 lg:w-auto ${isActive ? 'text-white bg-[#2db34a]' : ''}`} // Add active styles for Contact Us
+                    className={({ isActive }) => `block px-5 py-2 font-semibold mt-4 text-sm text-center text-[#000]   capitalize transition-colors duration-300 transform border rounded-md hover:text-white hover:bg-[#2db34a] lg:mt-0 lg:w-auto ${isActive ? 'text-white bg-[#2db34a]' : ''}`} // Add active styles for Contact Us
                     to="/contact"
                     onClick={handleLinkClick}
                 >

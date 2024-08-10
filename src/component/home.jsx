@@ -11,7 +11,6 @@ function home() {
         <>
             <Hero />
             <Annonces />
-
             <About />
             <Decouvrez />
             <Contact />
