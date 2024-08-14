@@ -8,10 +8,14 @@ const HowWeWork = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            setArticles(data);
+            // Shuffle the data and select the first three articles
+            const shuffledData = data.sort(() => 0.5 - Math.random());
+            const randomArticles = shuffledData.slice(0, 3);
+            setArticles(randomArticles);
         };
         fetchData();
-    }, []);
+    }, [data]); // Add `data` as a dependency if it might change
+
     return (
         <>
             <div className=" justify-between  flex  px-8 sm:px-20 mt-16">
@@ -25,7 +29,7 @@ const HowWeWork = () => {
                 <div className="">
                     <div className="mt-10 grid     max-w-md grid-cols-1 gap-6 px-2 sm:max-w-lg sm:px-20 md:max-w-screen-xl md:grid-cols-2 md:px-10 lg:grid-cols-3 lg:gap-8">
                         {articles.map((article) => (
-                            <Link to={`/article/${article.id}`} key={article.id}>
+                            <Link to={`/Property/${article.id}`} key={article.id}>
                                 <article className="mb-4 overflow-hidden  w-[20rem] rounded-xl border text-gray-700 shadow-md duration-500 ease-in-out hover:shadow-xl">
                                     <div className="relative">
                                         <img

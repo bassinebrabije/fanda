@@ -173,6 +173,22 @@ const ArticleDetail = () => {
                                 <p>🚿 {article.Bathroom} salles de bain modernes</p>
                             </div>
                         </div>
+                        {article.Parkings > 0 && ( // Condition to check Parkings
+                            <div className="mb-5 flex font-medium">
+                                <div>
+                                    <p>🚗 Place de parking</p>
+                                </div>
+                            </div>
+                        )}
+                        {article.Balconorterrasse && (
+                            <div className="mb-5 flex font-medium">
+                                <div>
+                                    <p>🪴 {article.Balconorterrasse}</p>
+                                </div>
+                            </div>
+                        )}
+
+
                         <p className='text-xs mb-5 text-[#2db34a] font-bold'>Réservez dès maintenant votre visite avec PRESTIGE F&A IMMOBILIER !
                             <br /> +212 645-607468</p>
                         <div className="mb-5 flex">
@@ -186,7 +202,7 @@ const ArticleDetail = () => {
                             </div>
                             <h1 className="my-1 text-center text-xl font-bold leading-8 text-gray-900">PRESTIGE F&A IMMOBILIER</h1>
                             <h3 className="font-lg text-semibold text-center leading-6 text-gray-600 mb-5">Agents Prestige f&a immobilier</h3>
-                            <a href="https://wa.me/+212645607468" target="_blank" className="relative mt-4 ml-8 rounded-lg border-2 border-[#2db34a] w-[16rem] hover:scale-105 bg-[#2db34a] px-6 py-2 font-medium text-white transition">
+                            <a href="https://wa.me/+212645607468" target="_blank" className="relative  mt-4 ml-12  sm:ml-10 rounded-lg border-2 border-[#2db34a] w-[16rem] hover:scale-105 bg-[#2db34a] px-6 py-2 font-medium text-white transition">
                                 Contacter via whatsapp
                             </a>
                         </div>
@@ -246,7 +262,7 @@ const ArticleDetail = () => {
                                         />
                                         {errors.message && <span className="text-red-500 text-sm">{errors.message}</span>}
                                     </label>
-                                    <button type="submit" className="relative mt-4 rounded-lg border-2 border-[#2db34a] w-[16rem] hover:scale-105 bg-[#2db34a] px-6 py-2 font-medium text-white transition">
+                                    <button type="submit" className="relative ml-3 mt-4 rounded-lg border-2 border-[#2db34a] w-[16rem] hover:scale-105 bg-[#2db34a] px-6 py-2 font-medium text-white transition">
                                         Demander une visite
                                     </button>
                                 </form>

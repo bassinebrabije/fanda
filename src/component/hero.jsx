@@ -16,6 +16,11 @@ function Hero() {
         }
     };
 
+    const handleSearchClickk = () => {
+        if (selectedType) {
+            navigate(`/Louer?type=${selectedType}`); // Navigate to Buy page with selected type
+        }
+    };
     return (
         <div className="relative container sm:mt-2 px-6 py-16 mx-auto text-center">
             <img
@@ -51,7 +56,14 @@ function Hero() {
                             onClick={handleSearchClick} // Handle click on search button
                             className="h-10 px-4 py-2 m-1 text-white transition-colors duration-300 transform bg-[#2db34a] rounded-md hover:bg-[#0b7d89] focus:outline-none"
                         >
-                            Search
+                            Acheter
+                        </button>
+                        <button
+                            type="button"
+                            onClick={handleSearchClickk} // Handle click on search button
+                            className="h-10 px-4 py-2 m-1 text-white transition-colors duration-300 transform bg-[#2db34a] rounded-md hover:bg-[#0b7d89] focus:outline-none"
+                        >
+                            Louer
                         </button>
                     </form>
                 </div>
