@@ -21,9 +21,6 @@ const HowWeWork = () => {
             <div className=" justify-between  flex  px-8 sm:px-20 mt-16">
                 <h1 className="text-left text-3xl text-[#2db34a] sm:text-4xl font-bold " style={{ fontFamily: '"Playfair Display", serif' }}>Découvrez notre sélection de biens
                 </h1>
-                <NavLink to='/Acheter' className="relative  hidden sm:block mt-1 rounded-lg border-2 border-[#2db34a]  hover:scale-105 bg-[#2db34a]  px-6 py-2 font-medium text-white transition">
-                    Voir plus
-                </NavLink>
             </div >
             <section className="flex flex-col items-center bg-white pb-5">
                 <div className="">
@@ -76,9 +73,7 @@ const HowWeWork = () => {
                         ))}
                     </div>
                 </div>
-                <NavLink to='/Acheter' className="relative block  sm:hidden mt-1 rounded-lg border-2 border-[#2db34a]  hover:scale-105 bg-[#2db34a]  px-6 py-2 font-medium text-white transition">
-                    Voir plus
-                </NavLink>
+
             </section>
         </>
     );
