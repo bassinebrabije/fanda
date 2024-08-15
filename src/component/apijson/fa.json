@@ -1,6 +1,6 @@
 [
   {
-    "id" : "1",
+    "id" : 1,
     "Description" : "Un grand et spacieux appartement à vendre avec une vue imprenable sur la mer. Il offre un cadre de vie luxueux dans l'un des quartiers les plus prisés de Casablanca ‘’2 mars’’, une opportunité à ne pas manquer",
     "title": "Appartement à vendre 2 mars",
     "ville": "Casablanca",
@@ -26,7 +26,7 @@
 
   },
   {
-    "id" : "2",
+    "id" : 2,
     "Description" : "Un grand et spacieux appartement à vendre avec une vue imprenable sur la mer. Il offre un cadre de vie luxueux dans l'un des quartiers les plus prisés de Casablanca ‘’2 mars’’, une opportunité à ne pas manquer",
     "title": "Studio à vendre  2 mars",
     "ville": "Casablanca",
@@ -53,15 +53,15 @@
   }
   ,
   {
-    "id" : "3",
+    "id" : 3,
     "Description" : "Un grand et spacieux appartement à vendre avec une vue imprenable sur la mer. Il offre un cadre de vie luxueux dans l'un des quartiers les plus prisés de Casablanca ‘’2 mars’’, une opportunité à ne pas manquer",
     "title": "Aapparemment à louer 2mars à côté macdo",
     "ville": "Casablanca",
     "type": "Appartement",
     "typevend": "Louer",
-    "Superficie": "No information yet",
-    "Terrasse": "No information yet",
-    "Superficie_Totale": "No information yet",
+    "Superficie": "Aucune information",
+    "Terrasse": "Aucune information",
+    "Superficie_Totale": "Aucune information",
     "Salle": 1,
     "Salon": 2,
     "Kitchen": 1,
@@ -80,15 +80,15 @@
     
   },
   {
-    "id" : "4",
+    "id" : 4,
     "Description" : "Un grand et spacieux appartement à vendre avec une vue imprenable sur la mer. Il offre un cadre de vie luxueux dans l'un des quartiers les plus prisés de Casablanca ‘’2 mars’’, une opportunité à ne pas manquer",
     "title": "Apparemment à louer anwal à côté du tram",
     "ville": "Casablanca",
     "type": "Appartement",
     "typevend": "Louer",
-    "Superficie": "No information yet",
-    "Terrasse": "No information yet",
-    "Superficie_Totale": "No information yet",
+    "Superficie": "Aucune information",
+    "Terrasse": "Aucune information",
+    "Superficie_Totale": "Aucune information",
     "Salle": 1,
     "Salon": 2,
     "Kitchen": 1,
@@ -107,15 +107,15 @@
     
   },
    {
-    "id" : "5",
+    "id" : 5,
     "Description" : "Un grand et spacieux appartement à vendre avec une vue imprenable sur la mer. Il offre un cadre de vie luxueux dans l'un des quartiers les plus prisés de Casablanca ‘’2 mars’’, une opportunité à ne pas manquer",
     "title": "Apparemment à louer anwal à côté du tram",
     "ville": "Casablanca",
     "type": "Appartement",
     "typevend": "Louer",
-    "Superficie": "No information yet",
-    "Terrasse": "No information yet",
-    "Superficie_Totale": "No information yet",
+    "Superficie": "Aucune information",
+    "Terrasse": "Aucune information",
+    "Superficie_Totale": "Aucune information",
     "Salle": 1,
     "Salon": 2,
     "Kitchen": 1,

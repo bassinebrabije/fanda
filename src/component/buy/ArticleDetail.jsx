@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import data from '../apijson/fa.json';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
@@ -23,14 +23,13 @@ const Modal = ({ message, onClose }) => {
 
 const ArticleDetail = () => {
     const { id } = useParams(); // Get the ID from the URL
-    const article = data.find(item => item.id == parseInt(id)); // Find the article by ID
-
+    const [article, setArticle] = useState(null); // State to store the article
     const [formData, setFormData] = useState({
         name: '',
         telephone: '',
         email_from: '',
         message: '',
-        bien: article.title
+        bien: ''
     });
     const [errors, setErrors] = useState({
         name: '',
@@ -40,6 +39,20 @@ const ArticleDetail = () => {
     });
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalMessage, setModalMessage] = useState('');
+
+    useEffect(() => {
+        // Find the article by ID when the component mounts or ID changes
+        const foundArticle = data.find(item => item.id === parseInt(id));
+        if (foundArticle) {
+            setArticle(foundArticle);
+            setFormData(prevData => ({
+                ...prevData,
+                bien: foundArticle.title // Set the 'bien' value based on the article
+            }));
+        } else {
+            setArticle(null); // Explicitly set to null if not found
+        }
+    }, [id]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -84,11 +97,10 @@ const ArticleDetail = () => {
                         telephone: '',
                         email_from: '',
                         message: '',
-                        bien: article.title
+                        bien: article?.title || '' // Set bien based on article title
                     });
                     setModalMessage('Your message has been sent successfully!');
                     setIsModalOpen(true);
-                    // Remove the reload timeout
                 })
                 .catch((error) => {
                     console.error('Error sending email:', error);
@@ -100,8 +112,14 @@ const ArticleDetail = () => {
         setIsModalOpen(false);
     };
 
-    if (!article) {
+    // Check if the article is null
+    if (article === null) {
         return <div>Article not found</div>;
+    }
+
+    // If article is still loading, you can show a loading indicator here
+    if (!article) {
+        return <div>Loading...</div>;
     }
 
     return (
@@ -116,24 +134,36 @@ const ArticleDetail = () => {
             <div className='sm:flex items-center justify-center '>
                 <div className='sm:h-[60%] sm:w-[30%]'>
                     <Carousel>
-                        <div>
-                            <img src={`https://i.imghippo.com/files/${article.img2}`} className='object-cover' alt={`${article.img2}`} />
-                        </div>
-                        <div>
-                            <img src={`https://i.imghippo.com/files/${article.img1}`} className='object-cover' alt={`${article.img1}`} />
-                        </div>
-                        <div>
-                            <img src={`https://i.imghippo.com/files/${article.img3}`} className='object-cover' alt={`${article.img3}`} />
-                        </div>
-                        <div>
-                            <img src={`https://i.imghippo.com/files/${article.img4}`} className='object-cover' alt={`${article.img4}`} />
-                        </div>
-                        <div>
-                            <img src={`https://i.imghippo.com/files/${article.img5}`} className='object-cover' alt={`${article.img5}`} />
-                        </div>
-                        <div>
-                            <img src={`https://i.imghippo.com/files/${article.img6}`} className='object-cover' alt={`${article.img6}`} />
-                        </div>
+                        {article.img2 && (
+                            <div>
+                                <img src={`https://i.imghippo.com/files/${article.img2}`} className='object-cover' alt={`${article.img2}`} />
+                            </div>
+                        )}
+                        {article.img1 && (
+                            <div>
+                                <img src={`https://i.imghippo.com/files/${article.img1}`} className='object-cover' alt={`${article.img1}`} />
+                            </div>
+                        )}
+                        {article.img3 && (
+                            <div>
+                                <img src={`https://i.imghippo.com/files/${article.img3}`} className='object-cover' alt={`${article.img3}`} />
+                            </div>
+                        )}
+                        {article.img4 && (
+                            <div>
+                                <img src={`https://i.imghippo.com/files/${article.img4}`} className='object-cover' alt={`${article.img4}`} />
+                            </div>
+                        )}
+                        {article.img5 && (
+                            <div>
+                                <img src={`https://i.imghippo.com/files/${article.img5}`} className='object-cover' alt={`${article.img5}`} />
+                            </div>
+                        )}
+                        {article.img6 && (
+                            <div>
+                                <img src={`https://i.imghippo.com/files/${article.img6}`} className='object-cover' alt={`${article.img6}`} />
+                            </div>
+                        )}
                     </Carousel>
                 </div>
             </div>
@@ -183,17 +213,10 @@ const ArticleDetail = () => {
                         {article.Balconorterrasse && (
                             <div className="mb-5 flex font-medium">
                                 <div>
-                                    <p>🪴 {article.Balconorterrasse}</p>
+                                    <p>🏡 Balcon ou terrasse</p>
                                 </div>
                             </div>
                         )}
-
-
-                        <p className='text-xs mb-5 text-[#2db34a] font-bold'>Réservez dès maintenant votre visite avec PRESTIGE F&A IMMOBILIER !
-                            <br /> +212 645-607468</p>
-                        <div className="mb-5 flex">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2359.7288089168865!2d-7.604865326050376!3d33.54638084427479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda632bc9e05e3cf%3A0xec5f7c1bf21da6db!2sAv.%202%20Mars%2C%20Casablanca!5e1!3m2!1sen!2sma!4v1723230995802!5m2!1sen!2sma" width="600" height="450"></iframe>
-                        </div>
                     </div>
                     <div className="m-5 max-w-sm">
                         <div className="rounded-lg border bg-white px-4 pt-8 pb-10 mb-10">
@@ -202,7 +225,7 @@ const ArticleDetail = () => {
                             </div>
                             <h1 className="my-1 text-center text-xl font-bold leading-8 text-gray-900">PRESTIGE F&A IMMOBILIER</h1>
                             <h3 className="font-lg text-semibold text-center leading-6 text-gray-600 mb-5">Agents Prestige f&a immobilier</h3>
-                            <a href="https://wa.me/+212645607468" target="_blank" className="relative  mt-4 ml-12  sm:ml-10 rounded-lg border-2 border-[#2db34a] w-[16rem] hover:scale-105 bg-[#2db34a] px-6 py-2 font-medium text-white transition">
+                            <a href="https://wa.me/+212645607468" target="_blank" className="relative mt-4 ml-12 sm:ml-10 rounded-lg border-2 border-[#2db34a] w-[16rem] hover:scale-105 bg-[#2db34a] px-6 py-2 font-medium text-white transition">
                                 Contacter via whatsapp
                             </a>
                         </div>
@@ -223,7 +246,7 @@ const ArticleDetail = () => {
                                         />
                                         {errors.name && <span className="text-red-500 text-sm">{errors.name}</span>}
                                     </label>
-                                    <label className="block mb-3" htmlFor="Téléphone">
+                                    <label className="block mb-3" htmlFor="telephone">
                                         <p className="text-gray-600 mb-2">Téléphone</p>
                                         <input
                                             name='telephone'
@@ -241,7 +264,7 @@ const ArticleDetail = () => {
                                         <p className="text-gray-600 mb-2">E-mail </p>
                                         <input
                                             name='email_from'
-                                            id='emailfrom'
+                                            id='email_from'
                                             className="w-full rounded-md border bg-white px-2 py-2 outline-none ring-[#2db34a] focus:ring-1"
                                             type="email"
                                             placeholder="Email"
