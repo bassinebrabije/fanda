@@ -1,7 +1,5 @@
 import React from 'react';
 import logo from '../images/logo.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInstagram, faTiktok, faYoutube, faFacebook } from '@fortawesome/free-brands-svg-icons';
 function Footer() {
     const currentYear = new Date().getFullYear(); // Get the current year
 
@@ -10,7 +8,7 @@ function Footer() {
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-10">
                 <div className="flex items-center justify-center pb-6 border-t-2">
                     <a className="mt-10">
-                        <img src={logo} className="h-12" alt="logo" loading="lazy" />
+                        <img src={logo} className="h-12" alt="logo" title={logo} loading="lazy" />
                     </a>
                 </div>
                 <div className="pt-7 pb-7 flex flex-col-reverse min-[520px]:flex-row items-center justify-between gap-6">

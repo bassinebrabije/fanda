@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import data from '../apijson/fa.json'; // Adjust the path if necessary
+import { Helmet } from 'react-helmet-async';
 
 function Rent() {
     const [articles, setArticles] = useState([]);
@@ -26,12 +27,19 @@ function Rent() {
 
     return (
         <>
+            <Helmet>
+                <title>Louer </title>
+                <link rel="canonical" href="https://prestigefandaimmobilier.com/Louer" />
+            </Helmet>
             <div className="sm:ml-5 sm:mr-5">
                 <section className="flex flex-col items-center bg-white">
                     <div className="mt-10 grid max-w-md grid-cols-1 gap-6 px-2 sm:max-w-lg sm:px-20 md:max-w-screen-xl md:grid-cols-2 md:px-10 lg:grid-cols-3 lg:gap-8">
                         {articles.length > 0 ? (
                             articles.map((article) => (
-                                <Link to={`/Property/${article.id}`} key={article.id}>
+                                <Link
+                                    to={`/Annonce/${article.id}-${encodeURIComponent(article.title)}`}
+                                    key={article.id}
+                                >
                                     <article className="mb-4 overflow-hidden w-[20rem] rounded-xl border text-gray-700 shadow-md duration-500 ease-in-out hover:shadow-xl">
                                         <div className="relative">
                                             <img

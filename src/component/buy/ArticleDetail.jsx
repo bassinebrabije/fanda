@@ -5,6 +5,8 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import emailjs from '@emailjs/browser';
 import Logo from './logo.png';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import { Helmet } from 'react-helmet-async';
 
 // Modal Component
 const Modal = ({ message, onClose }) => {
@@ -123,183 +125,222 @@ const ArticleDetail = () => {
     }
 
     return (
-        <div className="p-4">
-            <div className="justify-between flex sm:px-20 mb-5">
-                <h1 className="text-left text-[#2db34a]">
-                    <span className='sm:text-2xl font-bold'>{article.title}</span>
-                    <p className='text-xs'>{article.type} - {article.ville}</p>
-                </h1>
-                <h1 className="text-right text-[#2db34a] sm:text-2xl font-bold">{article.prix}</h1>
-            </div>
-            <div className='sm:flex items-center justify-center '>
-                <div className='sm:h-[60%] sm:w-[30%]'>
-                    <Carousel>
-                        {article.img2 && (
-                            <div>
-                                <img src={`https://i.imghippo.com/files/${article.img2}`} className='object-cover' alt={`${article.img2}`} />
-                            </div>
-                        )}
-                        {article.img1 && (
-                            <div>
-                                <img src={`https://i.imghippo.com/files/${article.img1}`} className='object-cover' alt={`${article.img1}`} />
-                            </div>
-                        )}
-                        {article.img3 && (
-                            <div>
-                                <img src={`https://i.imghippo.com/files/${article.img3}`} className='object-cover' alt={`${article.img3}`} />
-                            </div>
-                        )}
-                        {article.img4 && (
-                            <div>
-                                <img src={`https://i.imghippo.com/files/${article.img4}`} className='object-cover' alt={`${article.img4}`} />
-                            </div>
-                        )}
-                        {article.img5 && (
-                            <div>
-                                <img src={`https://i.imghippo.com/files/${article.img5}`} className='object-cover' alt={`${article.img5}`} />
-                            </div>
-                        )}
-                        {article.img6 && (
-                            <div>
-                                <img src={`https://i.imghippo.com/files/${article.img6}`} className='object-cover' alt={`${article.img6}`} />
-                            </div>
-                        )}
-                    </Carousel>
+        <>
+            <Helmet>
+                <title>{article.typevend} - {article.title}</title>
+                <link rel="canonical" href={`https://prestigefandaimmobilier.com/Annonce/${article.id}-${encodeURIComponent(article.title)}`} />
+            </Helmet>
+            <div className="p-4">
+                <div className="justify-between flex sm:px-20 mb-5">
+                    <h1 className="text-left text-[#2db34a]">
+                        <span className='sm:text-2xl font-bold'>{article.title}</span>
+                        <p className='text-xs'>{article.type} - {article.ville}</p>
+                    </h1>
+                    <h1 className="text-right text-[#2db34a] sm:text-2xl font-bold">{article.prix}</h1>
                 </div>
-            </div>
-            <section className="py-12 text-gray-800 sm:px-20">
-                <div className="mx-auto flex max-w-md flex-col rounded-lg lg:max-w-screen-xl lg:flex-row">
-                    <div className="max-w-2xl px-4 lg:pr-24">
-                        <h3 className="mb-2 text-3xl font-bold">{article.title}</h3>
-                        <p className="mb-3 ">
-                            <span className='text-2xl text-[#2db34a] font-bold'>Description du bien</span>
-                        </p>
-                        <p className="mb-3 ">
-                            <span className='text-sm text-[#000]'>{article.Description}</span>
-                        </p>
-                        <p className='text-sm mb-5 text-[#2db34a] font-bold'>Caractéristiques de l’appartement :</p>
-                        <div className="mb-3 flex font-medium">
-                            <div>
-                                <p>📐 {article.Superficie_Totale}</p>
-                            </div>
-                        </div>
-                        <div className="mb-3 flex font-medium">
-                            <div>
-                                <p>🛏 {article.Chambre} chambres </p>
-                            </div>
-                        </div>
-                        <div className="mb-3 flex font-medium">
-                            <div>
-                                <p>🍽 {article.Kitchen} Cuisine équipée</p>
-                            </div>
-                        </div>
-                        <div className="mb-3 flex font-medium">
-                            <div>
-                                <p>🛋 {article.Salon} Salons </p>
-                            </div>
-                        </div>
-                        <div className="mb-5 flex font-medium">
-                            <div>
-                                <p>🚿 {article.Bathroom} salles de bain modernes</p>
-                            </div>
-                        </div>
-                        {article.Parkings > 0 && ( // Condition to check Parkings
-                            <div className="mb-5 flex font-medium">
+                <div className='sm:flex items-center justify-center '>
+                    <div className='sm:h-[60%] sm:w-[30%]'>
+                        <Carousel>
+                            {article.img2 && (
                                 <div>
-                                    <p>🚗 Place de parking</p>
+                                    <img src={`https://i.imghippo.com/files/${article.img2}`} className='object-cover' alt={`${article.img2}`} />
                                 </div>
-                            </div>
-                        )}
-                        {article.Balconorterrasse && (
-                            <div className="mb-5 flex font-medium">
+                            )}
+                            {article.img1 && (
                                 <div>
-                                    <p>🏡 Balcon ou terrasse</p>
+                                    <img src={`https://i.imghippo.com/files/${article.img1}`} className='object-cover' alt={`${article.img1}`} />
                                 </div>
-                            </div>
-                        )}
-                    </div>
-                    <div className="m-5 max-w-sm">
-                        <div className="rounded-lg border bg-white px-4 pt-8 pb-10 mb-10">
-                            <div className="relative mx-auto w-36 rounded-full">
-                                <img className="mx-auto h-auto w-full rounded-full border-2 border-[#2db34a]" src={Logo} alt={Logo} />
-                            </div>
-                            <h1 className="my-1 text-center text-xl font-bold leading-8 text-gray-900">PRESTIGE F&A IMMOBILIER</h1>
-                            <h3 className="font-lg text-semibold text-center leading-6 text-gray-600 mb-5">Agents Prestige f&a immobilier</h3>
-                            <a href="https://wa.me/+212645607468" target="_blank" className="relative mt-4 ml-12 sm:ml-10 rounded-lg border-2 border-[#2db34a] w-[16rem] hover:scale-105 bg-[#2db34a] px-6 py-2 font-medium text-white transition">
-                                Contacter via whatsapp
-                            </a>
-                        </div>
-                        <div className="rounded-lg border bg-white">
-                            <div className="space-y-4 px-8 py-5">
-                                <h1 className="my-1 text-center text-xl font-bold leading-8 text-gray-900">Contacter l'annonceur</h1>
-                                <form onSubmit={sendEmail}>
-                                    <label className="block mb-3" htmlFor="name">
-                                        <p className="text-gray-600 mb-2">Nom et prénom</p>
-                                        <input
-                                            name='name'
-                                            id='name'
-                                            className="w-full rounded-md border bg-white px-2 py-2 outline-none ring-[#2db34a] focus:ring-1"
-                                            type="text"
-                                            placeholder=" Nom et prénom"
-                                            value={formData.name}
-                                            onChange={handleChange}
-                                        />
-                                        {errors.name && <span className="text-red-500 text-sm">{errors.name}</span>}
-                                    </label>
-                                    <label className="block mb-3" htmlFor="telephone">
-                                        <p className="text-gray-600 mb-2">Téléphone</p>
-                                        <input
-                                            name='telephone'
-                                            id='telephone'
-                                            className="w-full rounded-md border bg-white px-2 py-2 outline-none ring-[#2db34a] focus:ring-1"
-                                            type="number"
-                                            placeholder="Téléphone"
-                                            value={formData.telephone}
-                                            onChange={handleChange}
-                                        />
-                                        {errors.telephone && <span className="text-red-500 text-sm">{errors.telephone}</span>}
-                                    </label>
-                                    <input type="text" name="bien" id="bien" value={article.title} className="hidden" readOnly />
-                                    <label className="block mb-3" htmlFor="email_from">
-                                        <p className="text-gray-600 mb-2">E-mail </p>
-                                        <input
-                                            name='email_from'
-                                            id='email_from'
-                                            className="w-full rounded-md border bg-white px-2 py-2 outline-none ring-[#2db34a] focus:ring-1"
-                                            type="email"
-                                            placeholder="Email"
-                                            value={formData.email_from}
-                                            onChange={handleChange}
-                                        />
-                                        {errors.email_from && <span className="text-red-500 text-sm">{errors.email_from}</span>}
-                                    </label>
-                                    <label className="block mb-3" htmlFor="message">
-                                        <p className="text-gray-600 mb-2">Votre message</p>
-                                        <textarea
-                                            name='message'
-                                            id='message'
-                                            className="h-32 w-full rounded-md border bg-white px-2 py-2 outline-none ring-[#2db34a] focus:ring-1"
-                                            placeholder="Votre message"
-                                            value={formData.message}
-                                            onChange={handleChange}
-                                        />
-                                        {errors.message && <span className="text-red-500 text-sm">{errors.message}</span>}
-                                    </label>
-                                    <button type="submit" className="relative ml-3 mt-4 rounded-lg border-2 border-[#2db34a] w-[16rem] hover:scale-105 bg-[#2db34a] px-6 py-2 font-medium text-white transition">
-                                        Demander une visite
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
+                            )}
+                            {article.img3 && (
+                                <div>
+                                    <img src={`https://i.imghippo.com/files/${article.img3}`} className='object-cover' alt={`${article.img3}`} />
+                                </div>
+                            )}
+                            {article.img4 && (
+                                <div>
+                                    <img src={`https://i.imghippo.com/files/${article.img4}`} className='object-cover' alt={`${article.img4}`} />
+                                </div>
+                            )}
+                            {article.img5 && (
+                                <div>
+                                    <img src={`https://i.imghippo.com/files/${article.img5}`} className='object-cover' alt={`${article.img5}`} />
+                                </div>
+                            )}
+                            {article.img6 && (
+                                <div>
+                                    <img src={`https://i.imghippo.com/files/${article.img6}`} className='object-cover' alt={`${article.img6}`} />
+                                </div>
+                            )}
+                        </Carousel>
                     </div>
                 </div>
-            </section>
+                <section className="py-12 text-gray-800 sm:px-20">
+                    <div className="mx-auto flex max-w-md flex-col rounded-lg lg:max-w-screen-xl lg:flex-row">
+                        <div className="max-w-2xl px-4 lg:pr-24">
+                            <h3 className="mb-2 text-3xl font-bold">{article.title}</h3>
+                            <p className="mb-3 ">
+                                <span className='text-2xl text-[#2db34a] font-bold'>Description du bien</span>
+                            </p>
+                            <p className="mb-3 ">
+                                <span className='text-sm text-[#000]'>{article.Description}</span>
+                            </p>
+                            <p className='text-sm mb-5 text-[#2db34a] font-bold'>Caractéristiques de l’appartement :</p>
+                            <div className="mb-3 flex font-medium">
+                                <div>
+                                    <p>📐 {article.Superficie_Totale}</p>
+                                </div>
+                            </div>
+                            <div className="mb-3 flex font-medium">
+                                <div>
+                                    <p>🛏 {article.Chambre} chambres </p>
+                                </div>
+                            </div>
+                            <div className="mb-3 flex font-medium">
+                                <div>
+                                    <p>🍽 {article.Kitchen} Cuisine équipée</p>
+                                </div>
+                            </div>
+                            <div className="mb-3 flex font-medium">
+                                <div>
+                                    <p>🛋 {article.Salon} Salons </p>
+                                </div>
+                            </div>
+                            <div className="mb-5 flex font-medium">
+                                <div>
+                                    <p>🚿 {article.Bathroom} salles de bain modernes</p>
+                                </div>
+                            </div>
+                            {article.Parkings > 0 && ( // Condition to check Parkings
+                                <div className="mb-5 flex font-medium">
+                                    <div>
+                                        <p>🚗 Place de parking</p>
+                                    </div>
+                                </div>
+                            )}
+                            {article.Balconorterrasse && (
+                                <div className="mb-5 flex font-medium">
+                                    <div>
+                                        <p>🏡 Balcon ou terrasse</p>
+                                    </div>
+                                </div>
+                            )}
+                            <div className="mb-5 flex font-medium">
+                                <div>
+                                    <p>Réservez dès maintenant votre visite avec Prestige F&A immobilier !
+                                        <br></br>  Sara : +212645607468 <br></br> Othmane : +212614989507 </p>
+                                </div>
+                            </div>
+                            <div className="mb-5 flex font-medium">
+                                <div className="relative w-full pb-[56.25%]  sm:h-[33rem] overflow-hidden">
+                                    <iframe
+                                        src={article.location}
+                                        title="Responsive iframe"
+                                        loading="lazy"
+                                        className="absolute top-0 left-0 w-full h-full border-0"
+                                    ></iframe>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="m-5 max-w-sm">
+                            <div className="rounded-lg border bg-white px-4 pt-8 pb-10 mb-10">
+                                <div className="relative mx-auto w-36 rounded-full">
+                                    <img className="mx-auto h-auto w-full rounded-full border-2 border-[#2db34a]" src={Logo} alt={Logo} />
+                                </div>
+                                <h1 className="my-1 text-center text-xl font-bold leading-8 text-[#000]">PRESTIGE F&A IMMOBILIER</h1>
+                                <h3 className="font-lg text-semibold text-center font-normal leading-6 text-[#000] mb-5">Agents Prestige F&A immobilier</h3>
+                                <div className="flex space-x-4">
+                                    <a
+                                        href={`https://wa.me/+212645607468?text=${encodeURIComponent(article.title)}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="relative mt-4 flex items-center justify-center rounded-lg border-2 border-[#2db34a] w-[16rem] hover:scale-105 bg-[#2db34a] px-6 py-2 font-medium text-white transition"
+                                    >
+                                        <i className="fab fa-whatsapp"></i>
+                                        <span className="ml-2">Chat 1</span>
+                                    </a>
+                                    <a
+                                        href={`https://wa.me/+212614989507?text=${encodeURIComponent(article.title)}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="relative mt-4 flex items-center justify-center rounded-lg border-2 border-[#2db34a] w-[16rem] hover:scale-105 bg-[#2db34a] px-6 py-2 font-medium text-white transition"
+                                    >
+                                        <i className="fab fa-whatsapp"></i>
+                                        <span className="ml-2">Chat 2</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div className="rounded-lg border bg-white">
+                                <div className="space-y-4 px-8 py-5">
+                                    <h1 className="my-1 text-center text-xl font-bold leading-8 text-[#000]">Contacter l'annonceur</h1>
+                                    <form onSubmit={sendEmail}>
+                                        <label className="block mb-3" htmlFor="name">
+                                            <p className="text-gray-600 mb-2">Nom et prénom</p>
+                                            <input
+                                                name='name'
+                                                id='name'
+                                                className="w-full rounded-md border bg-white px-2 py-2 outline-none ring-[#2db34a] focus:ring-1"
+                                                type="text"
+                                                placeholder=" Nom et prénom"
+                                                value={formData.name}
+                                                onChange={handleChange}
+                                            />
+                                            {errors.name && <span className="text-red-500 text-sm">{errors.name}</span>}
+                                        </label>
+                                        <label className="block mb-3" htmlFor="telephone">
+                                            <p className="text-gray-600 mb-2">Téléphone</p>
+                                            <input
+                                                name='telephone'
+                                                id='telephone'
+                                                className="w-full rounded-md border bg-white px-2 py-2 outline-none ring-[#2db34a] focus:ring-1"
+                                                type="number"
+                                                placeholder="Téléphone"
+                                                value={formData.telephone}
+                                                onChange={handleChange}
+                                            />
+                                            {errors.telephone && <span className="text-red-500 text-sm">{errors.telephone}</span>}
+                                        </label>
+                                        <input type="text" name="bien" id="bien" value={article.title} className="hidden" readOnly />
+                                        <label className="block mb-3" htmlFor="email_from">
+                                            <p className="text-gray-600 mb-2">E-mail </p>
+                                            <input
+                                                name='email_from'
+                                                id='email_from'
+                                                className="w-full rounded-md border bg-white px-2 py-2 outline-none ring-[#2db34a] focus:ring-1"
+                                                type="email"
+                                                placeholder="Email"
+                                                value={formData.email_from}
+                                                onChange={handleChange}
+                                            />
+                                            {errors.email_from && <span className="text-red-500 text-sm">{errors.email_from}</span>}
+                                        </label>
+                                        <label className="block mb-3" htmlFor="message">
+                                            <p className="text-gray-600 mb-2">Votre message</p>
+                                            <textarea
+                                                name='message'
+                                                id='message'
+                                                className="h-32 w-full rounded-md border bg-white px-2 py-2 outline-none ring-[#2db34a] focus:ring-1"
+                                                placeholder="Votre message"
+                                                value={formData.message}
+                                                onChange={handleChange}
+                                            />
+                                            {errors.message && <span className="text-red-500 text-sm">{errors.message}</span>}
+                                        </label>
+                                        <button type="submit" className="relative ml-3 mt-4 rounded-lg border-2 border-[#2db34a] w-[16rem] hover:scale-105 bg-[#2db34a] px-6 py-2 font-medium text-white transition">
+                                            Demander une visite
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-            {/* Modal for Success Message */}
-            {isModalOpen && (
-                <Modal message={modalMessage} onClose={closeModal} />
-            )}
-        </div>
+                {/* Modal for Success Message */}
+                {isModalOpen && (
+                    <Modal message={modalMessage} onClose={closeModal} />
+                )}
+            </div>
+        </>
     );
 };
 

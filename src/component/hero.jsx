@@ -27,6 +27,8 @@ function Hero() {
                 src={Heroimg}
                 alt="Background"
                 className="absolute inset-0 object-cover w-full h-full sm:rounded-lg"
+                title={Heroimg}
+                loading="lazy"
             />
             <div className="relative z-10 max-w-lg mx-auto p-8">
                 <h1 style={{ fontFamily: '"Playfair Display", serif' }} className="text-3xl font-bold text-[#FFF] lg:text-4xl">
@@ -49,8 +51,9 @@ function Hero() {
                             <option>Villa</option>
                             <option>Maison</option>
                             <option>Immo Neuf</option>
+                            <option>Terrain</option>
+                            <option>Fermes</option>
                         </select>
-
                         <button
                             type="button"
                             onClick={handleSearchClick} // Handle click on search button

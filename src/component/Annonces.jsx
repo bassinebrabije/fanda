@@ -26,13 +26,18 @@ const HowWeWork = () => {
                 <div className="">
                     <div className="mt-10 grid     max-w-md grid-cols-1 gap-6 px-2 sm:max-w-lg sm:px-20 md:max-w-screen-xl md:grid-cols-2 md:px-10 lg:grid-cols-3 lg:gap-8">
                         {articles.map((article) => (
-                            <Link to={`/Property/${article.id}`} key={article.id}>
+                            <Link
+                                to={`/Annonce/${article.id}-${encodeURIComponent(article.title)}`}
+                                key={article.id}
+                            >
                                 <article className="mb-4 overflow-hidden  w-[20rem] rounded-xl border text-gray-700 shadow-md duration-500 ease-in-out hover:shadow-xl">
                                     <div className="relative">
                                         <img
                                             src={`https://i.imghippo.com/files/${article.img2}`}
                                             alt={article.img2}
                                             className="w-full h-48 object-cover hover:scale-110 hover:rotate-1 cursor-pointer"
+                                            title={article.img2}
+                                            loading="lazy"
                                         />
                                         <span className="absolute top-0 left-0 m-2 rounded-full bg-[#2db34a] px-2 text-center text-sm font-medium text-white">{article.typevend}</span>
                                     </div>
