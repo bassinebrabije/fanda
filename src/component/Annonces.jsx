@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import data from './apijson/fa.json';
 
@@ -18,13 +17,13 @@ const HowWeWork = () => {
 
     return (
         <>
-            <div className=" justify-between  flex  px-8 sm:px-20 mt-16">
+            <div className=" justify-between  flex  px-8 sm:px-20 mt-8">
                 <h1 className="text-left text-3xl text-[#2db34a] sm:text-4xl font-bold " style={{ fontFamily: '"Playfair Display", serif' }}>Découvrez notre sélection de biens
                 </h1>
             </div >
             <section className="flex flex-col items-center bg-white pb-5">
                 <div className="">
-                    <div className="mt-10 grid     max-w-md grid-cols-1 gap-6 px-2 sm:max-w-lg sm:px-20 md:max-w-screen-xl md:grid-cols-2 md:px-10 lg:grid-cols-3 lg:gap-8">
+                    <div className="mt-10 grid   max-w-md grid-cols-1 gap-6 px-2 sm:max-w-lg sm:px-20 md:max-w-screen-xl md:grid-cols-2 md:px-10 lg:grid-cols-3 lg:gap-8">
                         {articles.map((article) => (
                             <Link
                                 to={`/Annonce/${article.id}-${encodeURIComponent(article.title)}`}
@@ -39,8 +38,9 @@ const HowWeWork = () => {
                                             title={article.img2}
                                             loading="lazy"
                                         />
-                                        <span className="absolute top-0 left-0 m-2 rounded-full bg-[#2db34a] px-2 text-center text-sm font-medium text-white">{article.typevend}</span>
+                                        <span className="absolute top-0 left-0 m-2 rounded-full bg-[#2db34a] px-2 text-center text-sm font-medium text-white">{article.typevend} </span>
                                     </div>
+
                                     <div className="p-4">
                                         <div className="pb-2">
                                             <p className="text-lg text-[#2db34a] font-medium duration-500 ease-in-out">{article.prix}</p>
@@ -74,6 +74,7 @@ const HowWeWork = () => {
                                         </ul>
                                     </div>
                                 </article>
+
                             </Link>
                         ))}
                     </div>

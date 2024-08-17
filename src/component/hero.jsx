@@ -41,7 +41,7 @@ function Hero() {
                     <form className="flex flex-col md:flex-row">
                         <select
                             id="type-bien"
-                            className="flex-1 py-2 sm:px-4 sm:py-2 m-1 text-gray-700 placeholder-gray-400 bg-white border rounded-md shadow-sm focus:outline-none"
+                            className="flex-1 py-4 sm:px-4 sm:py-2 m-1 text-gray-700 placeholder-gray-400 bg-white border rounded-md shadow-sm focus:outline-none"
                             onChange={handleSelectChange}
                             defaultValue=""
                         >

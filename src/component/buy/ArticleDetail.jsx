@@ -8,6 +8,7 @@ import Logo from './logo.png';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { Helmet } from 'react-helmet-async';
 
+
 // Modal Component
 const Modal = ({ message, onClose }) => {
     return (
@@ -217,10 +218,10 @@ const ArticleDetail = () => {
                                     </div>
                                 </div>
                             )}
-                            {article.Balconorterrasse && (
+                            {article.Balconorterrasse.length > 0 && (
                                 <div className="mb-5 flex font-medium">
                                     <div>
-                                        <p>🏡 Balcon ou terrasse</p>
+                                        <p>🪴 {article.Balconorterrasse}</p>
                                     </div>
                                 </div>
                             )}
@@ -334,7 +335,6 @@ const ArticleDetail = () => {
                         </div>
                     </div>
                 </section>
-
                 {/* Modal for Success Message */}
                 {isModalOpen && (
                     <Modal message={modalMessage} onClose={closeModal} />
