@@ -143,32 +143,32 @@ const ArticleDetail = () => {
                         <Carousel>
                             {article.img2 && (
                                 <div>
-                                    <img src={`https://i.imghippo.com/files/${article.img2}`} className='object-cover' alt={`${article.img2}`} />
+                                    <img src={`https://i.imghippo.com/files/${article.img2}`} className='object-cover' alt={`${article.img2}`} title={`${article.img2}`} loading="lazy" />
                                 </div>
                             )}
                             {article.img1 && (
                                 <div>
-                                    <img src={`https://i.imghippo.com/files/${article.img1}`} className='object-cover' alt={`${article.img1}`} />
+                                    <img src={`https://i.imghippo.com/files/${article.img1}`} className='object-cover' alt={`${article.img1}`} title={`${article.img1}`} loading="lazy" />
                                 </div>
                             )}
                             {article.img3 && (
                                 <div>
-                                    <img src={`https://i.imghippo.com/files/${article.img3}`} className='object-cover' alt={`${article.img3}`} />
+                                    <img src={`https://i.imghippo.com/files/${article.img3}`} className='object-cover' alt={`${article.img3}`} title={`${article.img3}`} loading="lazy" />
                                 </div>
                             )}
                             {article.img4 && (
                                 <div>
-                                    <img src={`https://i.imghippo.com/files/${article.img4}`} className='object-cover' alt={`${article.img4}`} />
+                                    <img src={`https://i.imghippo.com/files/${article.img4}`} className='object-cover' alt={`${article.img4}`} title={`${article.img4}`} loading="lazy" />
                                 </div>
                             )}
                             {article.img5 && (
                                 <div>
-                                    <img src={`https://i.imghippo.com/files/${article.img5}`} className='object-cover' alt={`${article.img5}`} />
+                                    <img src={`https://i.imghippo.com/files/${article.img5}`} className='object-cover' alt={`${article.img5}`} title={`${article.img5}`} loading="lazy" />
                                 </div>
                             )}
                             {article.img6 && (
                                 <div>
-                                    <img src={`https://i.imghippo.com/files/${article.img6}`} className='object-cover' alt={`${article.img6}`} />
+                                    <img src={`https://i.imghippo.com/files/${article.img6}`} className='object-cover' alt={`${article.img6}`} title={`${article.img6}`} loading="lazy" />
                                 </div>
                             )}
                         </Carousel>
