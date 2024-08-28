@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import data from '../apijson/fa.json';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
 import emailjs from '@emailjs/browser';
 import Logo from './logo.png';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { Helmet } from 'react-helmet-async';
 
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
+
+
+import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
+
 
 // Modal Component
 const Modal = ({ message, onClose }) => {
     return (
-        <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-50">
             <div className="bg-white p-6 rounded-lg shadow-lg">
                 <h2 className="text-xl font-bold mb-4">Success</h2>
                 <p>{message}</p>
@@ -23,10 +28,13 @@ const Modal = ({ message, onClose }) => {
         </div>
     );
 };
-
 const ArticleDetail = () => {
     const { id } = useParams(); // Get the ID from the URL
     const [article, setArticle] = useState(null); // State to store the article
+
+    const [open, setOpen] = React.useState(false);
+
+
     const [formData, setFormData] = useState({
         name: '',
         telephone: '',
@@ -119,7 +127,6 @@ const ArticleDetail = () => {
     if (article === null) {
         return <div>Article not found</div>;
     }
-
     // If article is still loading, you can show a loading indicator here
     if (!article) {
         return <div>Loading...</div>;
@@ -130,52 +137,72 @@ const ArticleDetail = () => {
             <Helmet>
                 <title>{article.typevend} - {article.title}</title>
                 <link rel="canonical" href={`https://prestigefandaimmobilier.com/Annonce/${article.id}-${encodeURIComponent(article.title)}`} />
+
             </Helmet>
-            <div className="p-4">
-                <div className="justify-between flex sm:px-20 mb-5">
-                    <h1 className="text-left text-[#2db34a]">
-                        <span className='sm:text-2xl font-bold'>{article.title}</span>
-                        <p className='text-xs'>{article.type} - {article.ville}</p>
-                    </h1>
-                    <h1 className="text-right text-[#2db34a] sm:text-2xl font-bold">{article.prix}</h1>
-                </div>
-                <div className='sm:flex items-center justify-center '>
-                    <div className='sm:h-[60%] sm:w-[30%]'>
-                        <Carousel>
-                            {article.img2 && (
-                                <div>
-                                    <img src={`https://i.imghippo.com/files/${article.img2}`} className='object-cover' alt={`${article.img2}`} title={`${article.img2}`} loading="lazy" />
-                                </div>
-                            )}
-                            {article.img1 && (
-                                <div>
-                                    <img src={`https://i.imghippo.com/files/${article.img1}`} className='object-cover' alt={`${article.img1}`} title={`${article.img1}`} loading="lazy" />
-                                </div>
-                            )}
-                            {article.img3 && (
-                                <div>
-                                    <img src={`https://i.imghippo.com/files/${article.img3}`} className='object-cover' alt={`${article.img3}`} title={`${article.img3}`} loading="lazy" />
-                                </div>
-                            )}
-                            {article.img4 && (
-                                <div>
-                                    <img src={`https://i.imghippo.com/files/${article.img4}`} className='object-cover' alt={`${article.img4}`} title={`${article.img4}`} loading="lazy" />
-                                </div>
-                            )}
-                            {article.img5 && (
-                                <div>
-                                    <img src={`https://i.imghippo.com/files/${article.img5}`} className='object-cover' alt={`${article.img5}`} title={`${article.img5}`} loading="lazy" />
-                                </div>
-                            )}
-                            {article.img6 && (
-                                <div>
-                                    <img src={`https://i.imghippo.com/files/${article.img6}`} className='object-cover' alt={`${article.img6}`} title={`${article.img6}`} loading="lazy" />
-                                </div>
-                            )}
-                        </Carousel>
+            <section className="p-4 mt-20">
+
+
+                <Lightbox
+                    plugins={[Fullscreen, Zoom]}
+                    open={open}
+                    close={() => setOpen(false)}
+                    slides={[
+                        { src: `https://i.imghippo.com/files/${article.img2}` },
+                        { src: `https://i.imghippo.com/files/${article.img1}` },
+                        { src: `https://i.imghippo.com/files/${article.img3}` },
+                        { src: `https://i.imghippo.com/files/${article.img4}` },
+                        { src: `https://i.imghippo.com/files/${article.img5}` },
+                        { src: `https://i.imghippo.com/files/${article.img6}` },
+                    ]}
+                />
+
+
+                <div className="mx-auto mt-2  px-2 sm:px-12" >
+                    <div className="grid gap-2 grid-cols-1 md:grid-cols-2" uk-lightbox="animation: scale">
+                        <button type="button" onClick={() => setOpen(true)} className="outline-none	">
+                            <div className="w-full" >
+                                <img src={`https://i.imghippo.com/files/${article.img2}`} className="w-full h-[28.5rem] object-cover rounded-xl shadow" alt={`https://i.imghippo.com/files/${article.img2}`} loading="lazy" />
+                            </div>
+                        </button>
+                        <div className="w-full">
+                            <div className="grid gap-2 grid-cols-2">
+                                <button type="button" onClick={() => setOpen(true)} className="outline-none	">
+                                    <div className="w-full">
+                                        <img src={`https://i.imghippo.com/files/${article.img1}`} className="w-full h-[14rem] object-cover rounded-xl shadow" alt={`https://i.imghippo.com/files/${article.img1}`} loading="lazy" />
+                                    </div>
+                                </button>
+                                <button type="button" onClick={() => setOpen(true)} className="outline-none	">
+                                    <div className="w-full">
+                                        <img src={`https://i.imghippo.com/files/${article.img3}`} className="w-full h-[14rem] object-cover rounded-xl shadow" alt={`https://i.imghippo.com/files/${article.img3}`} title='' loading="lazy" />
+                                    </div>
+                                </button>
+                                <button type="button" onClick={() => setOpen(true)} className="outline-none	">
+                                    <div className="w-full">
+                                        <img src={`https://i.imghippo.com/files/${article.img4}`} className="w-full h-[14rem] object-cover rounded-xl shadow" alt={`https://i.imghippo.com/files/${article.img4}`} loading="lazy" />
+                                    </div>
+                                </button>
+                                <button type="button" onClick={() => setOpen(true)} className="outline-none	">
+
+                                    <div className="w-full relative">
+                                        <img
+                                            src={`https://i.imghippo.com/files/${article.img5}`}
+                                            className="w-full h-[14rem] object-cover rounded-xl shadow"
+                                            alt={`https://i.imghippo.com/files/${article.img5}`}
+                                            loading="lazy"
+                                        />
+                                        <div className="absolute inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm rounded-xl">
+                                            <i className="fa-solid fa-image text-white "><span className="ml-2">2</span></i>
+                                        </div>
+                                    </div>
+                                </button>
+
+                            </div>
+                        </div>
                     </div>
+
                 </div>
-                <section className="py-12 text-gray-800 sm:px-20">
+
+                <div className="py-8 text-gray-800 sm:px-8 ">
                     <div className="mx-auto flex max-w-md flex-col rounded-lg lg:max-w-screen-xl lg:flex-row">
                         <div className="max-w-2xl px-4 lg:pr-24">
                             <h3 className="mb-2 text-3xl font-bold">{article.title}</h3>
@@ -183,54 +210,57 @@ const ArticleDetail = () => {
                                 <span className='text-2xl text-[#2db34a] font-bold'>Description du bien</span>
                             </p>
                             <p className="mb-3 ">
-                                <span className='text-sm text-[#000]'>{article.Description}</span>
+                                <span className='text-sm '>{article.Description}</span>
                             </p>
-                            <p className='text-sm mb-5 text-[#2db34a] font-bold'>Caractéristiques de l’appartement :</p>
+                            <p className='text-sm mb-5 text-[#2db34a] font-bold'>Caractéristiques :</p>
                             <div className="mb-3 flex font-medium">
                                 <div>
-                                    <p>📐 {article.Superficie_Totale}</p>
+                                    <p className="text-sm">📐 {article.Superficie_Totale}</p>
                                 </div>
                             </div>
                             <div className="mb-3 flex font-medium">
                                 <div>
-                                    <p>🛏 {article.Chambre} chambres </p>
+                                    <p className="text-sm">🛏 {article.Chambre} chambres </p>
                                 </div>
                             </div>
                             <div className="mb-3 flex font-medium">
                                 <div>
-                                    <p>🍽 {article.Kitchen} Cuisine équipée</p>
+                                    <p className="text-sm">🍽 {article.Kitchen} Cuisine équipée</p>
                                 </div>
                             </div>
                             <div className="mb-3 flex font-medium">
                                 <div>
-                                    <p>🛋 {article.Salon} Salons </p>
+                                    <p className="text-sm">🛋 {article.Salon} Salons </p>
                                 </div>
                             </div>
                             <div className="mb-5 flex font-medium">
                                 <div>
-                                    <p>🚿 {article.Bathroom} salles de bain modernes</p>
+                                    <p className="text-sm">🚿 {article.Bathroom} salles de bain modernes</p>
                                 </div>
                             </div>
                             {article.Parkings > 0 && ( // Condition to check Parkings
                                 <div className="mb-5 flex font-medium">
                                     <div>
-                                        <p>🚗 Place de parking</p>
+                                        <p className="text-sm">🚗 Place de parking</p>
                                     </div>
                                 </div>
                             )}
                             {article.Balconorterrasse.length > 0 && (
                                 <div className="mb-5 flex font-medium">
                                     <div>
-                                        <p>🪴 {article.Balconorterrasse}</p>
+                                        <p className="text-sm">🪴 {article.Balconorterrasse}</p>
                                     </div>
                                 </div>
                             )}
-                            <div className="mb-5 flex font-medium">
+                            <div className="mb-5 flex ">
                                 <div>
-                                    <p>Réservez dès maintenant votre visite avec Prestige F&A immobilier !
+                                    <p className="text-sm">Réservez dès maintenant votre visite avec Prestige F&A immobilier !
                                         <br></br>  Sara : +212645607468 <br></br> Othmane : +212614989507 </p>
                                 </div>
                             </div>
+                            <p className='text-xl mb-5 text-[#2db34a] font-bold'>Localisation du bien
+                                :</p>
+
                             <div className="mb-5 flex font-medium">
                                 <div className="relative w-full pb-[56.25%]  sm:h-[33rem] overflow-hidden">
                                     <iframe
@@ -242,33 +272,25 @@ const ArticleDetail = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="m-5 max-w-sm">
+                        <div className="m-5 sm:pl-20 max-w-sm">
                             <div className="rounded-lg border bg-white px-4 pt-8 pb-10 mb-10">
                                 <div className="relative mx-auto w-36 rounded-full">
                                     <img className="mx-auto h-auto w-full rounded-full border-2 border-[#2db34a]" src={Logo} alt={Logo} />
                                 </div>
                                 <h1 className="my-1 text-center text-xl font-bold leading-8 text-[#000]">PRESTIGE F&A IMMOBILIER</h1>
                                 <h3 className="font-lg text-semibold text-center font-normal leading-6 text-[#000] mb-5">Agents Prestige F&A immobilier</h3>
-                                <div className="flex space-x-4">
-                                    <a
-                                        href={`https://wa.me/+212645607468?text=${encodeURIComponent(article.title)}`}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="relative mt-4 flex items-center justify-center rounded-lg border-2 border-[#2db34a] w-[16rem] hover:scale-105 bg-[#2db34a] px-6 py-2 font-medium text-white transition"
-                                    >
-                                        <i className="fab fa-whatsapp"></i>
-                                        <span className="ml-2">Chat 1</span>
-                                    </a>
-                                    <a
-                                        href={`https://wa.me/+212614989507?text=${encodeURIComponent(article.title)}`}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="relative mt-4 flex items-center justify-center rounded-lg border-2 border-[#2db34a] w-[16rem] hover:scale-105 bg-[#2db34a] px-6 py-2 font-medium text-white transition"
-                                    >
-                                        <i className="fab fa-whatsapp"></i>
-                                        <span className="ml-2">Chat 2</span>
-                                    </a>
-                                </div>
+
+                                <a
+                                    href={`https://wa.me/+212614989507?text=${encodeURIComponent(article.title)}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="relative mt-4 ml-5 sm:ml-5 flex items-center justify-center rounded-lg border-2 border-[#2db34a] w-[16rem] hover:scale-105 bg-[#2db34a] px-6 py-2 font-medium text-white transition no-underline"
+                                >
+                                    <i className="fab fa-whatsapp"></i>
+                                    <span className="ml-2">Contacter via whatsapp</span>
+                                </a>
+
+
                             </div>
                             <div className="rounded-lg border bg-white">
                                 <div className="space-y-4 px-8 py-5">
@@ -326,7 +348,7 @@ const ArticleDetail = () => {
                                             />
                                             {errors.message && <span className="text-red-500 text-sm">{errors.message}</span>}
                                         </label>
-                                        <button type="submit" className="relative ml-3 mt-4 rounded-lg border-2 border-[#2db34a] w-[16rem] hover:scale-105 bg-[#2db34a] px-6 py-2 font-medium text-white transition">
+                                        <button type="submit" className="relative   mt-4 rounded-lg border-2 border-[#2db34a] w-[16rem] hover:scale-105 bg-[#2db34a] px-6 py-2 font-medium text-white transition">
                                             Demander une visite
                                         </button>
                                     </form>
@@ -334,12 +356,13 @@ const ArticleDetail = () => {
                             </div>
                         </div>
                     </div>
-                </section>
+                </div>
                 {/* Modal for Success Message */}
                 {isModalOpen && (
                     <Modal message={modalMessage} onClose={closeModal} />
                 )}
-            </div>
+
+            </section >
         </>
     );
 };

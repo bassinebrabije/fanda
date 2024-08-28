@@ -12,6 +12,7 @@ function home() {
             <Helmet>
                 <title>PRESTIGE F&A IMMOBILIER</title>
                 <link rel="canonical" href="https://prestigefandaimmobilier.com/" />
+
             </Helmet>
             <Hero />
             <Annonces />

@@ -4,12 +4,14 @@
     "Description" : "Un grand et spacieux appartement à vendre avec une vue imprenable sur la mer. Il offre un cadre de vie luxueux dans l'un des quartiers les plus prisés de Casablanca ‘’2 mars’’, une opportunité à ne pas manquer",
     "title": "Appartement à vendre 2 mars",
     "ville": "Casablanca",
+    "resgtion" : "2 mars",
     "type": "Appartement",
     "typevend": "Vendre",
+    "empty" : "true",
     "Superficie": "57 m",
     "Terrasse": "7 m²",
     "Superficie_Totale": "64 m²",
-    "Salle": 1,
+    "Sallesport": 1,
     "Salon": 1,
     "Kitchen": 1,
     "Chambre": 2,
@@ -23,14 +25,13 @@
     "img4": "RhbpB1723145662.jpg",
     "img5": "fJExm1723145689.jpg",
     "img6": "sTAAD1723145740.jpg"
-
   },
   {
     "id" : 2,
     "Description" : "Un grand et spacieux appartement à vendre avec une vue imprenable sur la mer. Il offre un cadre de vie luxueux dans l'un des quartiers les plus prisés de Casablanca ‘’2 mars’’, une opportunité à ne pas manquer",
-    "title": "Studio à vendre  2 mars",
+    "title": "Immeuble à vendre  2 mars",
     "ville": "Casablanca",
-    "type": "Studio",
+    "type": "Immeuble",
     "typevend": "Vendre",
     "Superficie": "45 m",
     "Terrasse": "19 m²",
@@ -49,7 +50,6 @@
     "img4": "tXMSh1723149827.jpg",
     "img5": "OVFYU1723149954.jpg",
     "img6": "hQiDy1723149770.jpg"
-    
   }
   ,
   {
@@ -70,7 +70,7 @@
     "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2359.728808916889!2d-7.604865326050376!3d33.54638084427479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda632bc9e05e3cf%3A0xec5f7c1bf21da6db!2sAv.%202%20Mars%2C%20Casablanca!5e1!3m2!1sfr!2sma!4v1723762379785!5m2!1sfr!2sma",
     "Balconorterrasse" : "Balcon",
     "Parkings": 1,
-    "prix": "6300Dh non négociable", 
+    "prix": "6300Dh ", 
     "img1": "Wvu2H1723668095.png",
     "img2": "QrFAm1723668052.png",
     "img3": "xg9ib1723668273.png",
@@ -97,7 +97,7 @@
     "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9439.203631367669!2d-7.7128077862004805!3d33.54374051597172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda62dcae6f5991d%3A0xec65ecd2a62887cd!2sANWAL!5e1!3m2!1sfr!2sma!4v1723762514747!5m2!1sfr!2sma",
     "Balconorterrasse" : "Terrasse",
     "Parkings": 1,
-    "prix": "7000Dh non négociable",
+    "prix": "7000Dh ",
     "img1": "t8gAf1723668569.jpg",
     "img2": "bJkfN1723668655.jpg",
     "img3": "elmKc1723668584.jpg",
@@ -124,7 +124,7 @@
     "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9439.203631367669!2d-7.7128077862004805!3d33.54374051597172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda62dcae6f5991d%3A0xec65ecd2a62887cd!2sANWAL!5e1!3m2!1sfr!2sma!4v1723762514747!5m2!1sfr!2sma",
     "Balconorterrasse" : "Balcon",
     "Parkings": 1,
-    "prix": "6800Dh non négociable",
+    "prix": "6800Dh",
     "img1": "by7IY1723669455.jpg",
     "img2": "4nsNc1723669440.jpg",
     "img3": "mEWJf1723669469.jpg",

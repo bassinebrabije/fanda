@@ -1,19 +1,29 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 import Buy from '../images/buy.jpg'
 import Family from '../images/family.jpg'
 import Happy from '../images/happy.jpg'
 import Fiable from '../images/Fiable.jpg'
 import Relaxing from '../images/relaxing.jpg'
+import AOS from "aos";
+import "aos/dist/aos.css";
 function Decouvrez() {
+
+    useEffect(() => {
+        AOS.init({
+            duration: 3000, // animation duration
+            once: true, // whether animation should happen only once
+        });
+    }, []);
     return (
+
         <>
-            <div className=" justify-between  flex  px-8 sm:pt-10 sm:px-20 ">
+            <div className=" justify-between  flex  px-8 sm:pt-10 sm:px-20 " data-aos="fade-up">
                 <h1 className="text-left text-3xl text-[#2db34a] sm:text-4xl font-bold " style={{ fontFamily: '"Playfair Display", serif' }}>Vivez l'Immobilier
                 </h1>
             </div>
-            <section className="bg-white">
+            <section >
                 <div className="py-4 px-8 mx-auto max-w-screen-xl sm:py-10 lg:px-16">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 h-full">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 h-full" data-aos="fade-up">
                         <div className="col-span-2 sm:col-span-1 md:col-span-2 bg-gray-50 h-auto md:h-full flex flex-col">
                             <div className="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40 flex-grow">
                                 <img src={Relaxing} alt={Relaxing} className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"

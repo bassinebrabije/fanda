@@ -7,8 +7,8 @@ import New from './component/new/new';
 import Contact from './component/contact';
 import Footer from './component/footer';
 import Home from './component/home';
-import NotFound from './component/notfound'; // Corrected the component name here
-import ArticleDetail from './component/buy/ArticleDetail'; // Import your ArticleDetail component
+import NotFound from './component/notfound';
+import ArticleDetail from './component/buy/ArticleDetail';
 
 const App = () => {
   return (
